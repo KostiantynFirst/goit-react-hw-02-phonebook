@@ -1,0 +1,89 @@
+import styled from "styled-components";
+
+export const PhonebookContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+`
+export const PhonebookHeadings = styled.h2`
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+`
+export const PhonebookForm = styled.form`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+`
+export const PhonebookFormLabel = styled.label`
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+`
+export const PhonebookFormInput = styled.input`
+    font-size: 16px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 300px;
+    margin-bottom: 10px;
+`
+
+  
+
+//   button[type="submit"] {
+//     font-size: 18px;
+//     padding: 10px 20px;
+//     background-color: #008CBA;
+//     color: #fff;
+//     border: none;
+//     border-radius: 5px;
+//     cursor: pointer;
+//   }
+  
+//   button[type="submit"]:hover {
+//     background-color: #006b8f;
+//   }
+  
+//   .contacts-container {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//   }
+  
+//   h3 {
+//     margin-bottom: 10px;
+//   }
+  
+//   .contacts-list {
+//     list-style: none;
+//     margin: 0;
+//     padding: 0;
+//   }
+  
+//   .contact-item {
+//     display: flex;
+//     align-items: center;
+//     margin-bottom: 10px;
+//   }
+  
+//   .contact-name {
+//     font-size: 16px;
+//     margin-right: 10px;
+//   }
+  
+//   .delete-button {
+//     font-size: 14px;
+//     padding: 5px 10px;
+//     background-color: #e74c3c;
+//     color: #fff;
+//     border: none;
+//     border-radius: 5px;
+//     cursor: pointer;
+//   }
+  
+//   .delete-button:hover {
+//     background-color: #c0392b;
+//   }
