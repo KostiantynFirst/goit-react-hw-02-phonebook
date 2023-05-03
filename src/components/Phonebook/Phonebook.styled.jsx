@@ -17,10 +17,16 @@ export const PhonebookForm = styled.form`
     align-items: center;
     margin-bottom: 20px;
 `
+export const PhonebookFormContainer = styled.div`
+    display: flex;
+    margin-bottom: 10px;
+`
+
 export const PhonebookFormLabel = styled.label`
     font-size: 18px;
     font-weight: bold;
-    margin-bottom: 10px;
+    // margin-bottom: 10px;
+    padding-right: 5px;
 `
 export const PhonebookFormInput = styled.input`
     font-size: 16px;
@@ -28,7 +34,7 @@ export const PhonebookFormInput = styled.input`
     border-radius: 5px;
     border: 1px solid #ccc;
     width: 300px;
-    margin-bottom: 10px;
+
 `
 export const PhonebookBtn = styled.button`
     font-size: 18px;

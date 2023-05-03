@@ -1,6 +1,6 @@
 import { Component } from "react";
 import { nanoid } from "nanoid";
-import { PhonebookContainer, PhonebookHeadings, PhonebookForm, PhonebookFormLabel, PhonebookFormInput, PhonebookBtn, PhonebookContacts, PhonebookContactsHeading, PhonebookContactsList, PhonebookContactsListItem, PhonebookContactsListItemName, DeleteBtn } from "./Phonebook.styled";
+import { PhonebookContainer, PhonebookHeadings, PhonebookForm, PhonebookFormContainer, PhonebookFormLabel, PhonebookFormInput, PhonebookBtn, PhonebookContacts, PhonebookContactsHeading, PhonebookContactsList, PhonebookContactsListItem, PhonebookContactsListItemName, DeleteBtn } from "./Phonebook.styled";
 
 export class Phonebook extends Component {
 
@@ -47,8 +47,10 @@ export class Phonebook extends Component {
             <PhonebookContainer>
               <PhonebookHeadings>Phonebook</PhonebookHeadings>
             
-              <PhonebookForm onSubmit={this.hanleSubmit}>
-                <PhonebookFormLabel htmlFor="name">Name:
+
+             <PhonebookForm onSubmit={this.hanleSubmit}>
+            <PhonebookFormContainer>
+                <PhonebookFormLabel htmlFor="name"> Name: </PhonebookFormLabel> 
                 <PhonebookFormInput   type="text"
                                       value={this.state.name} 
                                       name="name"
@@ -57,7 +59,8 @@ export class Phonebook extends Component {
                                       required
                                       placeholder="Enter name"
                                       onChange={this.onInputName} />
-             </PhonebookFormLabel>
+            </PhonebookFormContainer>
+             
 
                 {/* <PhonebookFormLabel htmlFor="number">Number:</PhonebookFormLabel>
                 <PhonebookFormInput 
