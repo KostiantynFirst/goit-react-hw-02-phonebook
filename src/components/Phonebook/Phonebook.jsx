@@ -1,36 +1,55 @@
 import { Component } from "react";
+import { PhonebookContainer, PhonebookHeadings, PhonebookForm, PhonebookFormLabel, PhonebookFormInput, PhonebookBtn, PhonebookContacts, PhonebookContactsHeading, PhonebookContactsList, PhonebookContactsListItem, PhonebookContactsListItemName, DeleteBtn } from "./Phonebook.styled";
 
 export class Phonebook extends Component {
 
+    state = {
+        contacts: [],
+        name: ''
+      }
 
-//   <!-- <div class="phonebook-container">
-//   <h2>Phonebook</h2>
 
-//   <form class="phonebook-form">
-//     <label for="name">Name:</label>
-//     <input type="text" id="name" name="name" placeholder="Enter name">
+    render() {
 
-//     <button type="submit">Add Contact</button>
-//   </form>
+        return (
+   
+            <PhonebookContainer>
+              <PhonebookHeadings>Phonebook</PhonebookHeadings>
+            
+              <PhonebookForm>
+                <PhonebookFormLabel htmlFor="name">Name:</PhonebookFormLabel>
+                <PhonebookFormInput   type="text"
+                                      name="name"
+                                      pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+                                      title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+                                      required
+                                      placeholder="Enter name" />
+            
+                <PhonebookBtn type="submit">Add Contact</PhonebookBtn>
+              </PhonebookForm>
+            
+              <PhonebookContacts>
+                <PhonebookContactsHeading>Contacts</PhonebookContactsHeading>
+            
+                <PhonebookContactsList>
+                  <PhonebookContactsListItem>
+                    <PhonebookContactsListItemName>John Doe</PhonebookContactsListItemName>
+                    <DeleteBtn>Delete</DeleteBtn>
+                  </PhonebookContactsListItem>
+            
+                  <PhonebookContactsListItem>
+                    <PhonebookContactsListItemName>Jane Smith</PhonebookContactsListItemName>
+                    <DeleteBtn>Delete</DeleteBtn>
+                </PhonebookContactsListItem>
+                </PhonebookContactsList>
+            
+              </PhonebookContacts>
+            </PhonebookContainer> 
+            
+            )
 
-//   <div class="contacts-container">
-//     <h3>Contacts</h3>
-
-//     <ul class="contacts-list">
-//       <li class="contact-item">
-//         <span class="contact-name">John Doe</span>
-//         <button class="delete-button">Delete</button>
-//       </li>
-
-//       <li class="contact-item">
-//         <span class="contact-name">Jane Smith</span>
-//         <button class="delete-button">Delete</button>
-//       </li>
-
-//       Add more contact items as needed -->
-//     <!-- </ul>
-//   </div>
-// </div> --> 
+    }
+   
 
 }
 

@@ -30,60 +30,59 @@ export const PhonebookFormInput = styled.input`
     width: 300px;
     margin-bottom: 10px;
 `
+export const PhonebookBtn = styled.button`
+    font-size: 18px;
+    padding: 10px 20px;
+    background-color: #008CBA;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 
+    &:hover {
+        background-color: #006b8f;
+        }
+`
   
+export const PhonebookContacts = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`
 
-//   button[type="submit"] {
-//     font-size: 18px;
-//     padding: 10px 20px;
-//     background-color: #008CBA;
-//     color: #fff;
-//     border: none;
-//     border-radius: 5px;
-//     cursor: pointer;
-//   }
+export const PhonebookContactsHeading = styled.h3`
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 10px;
+`
+
+export const PhonebookContactsList = styled.ul`
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+`
+export const PhonebookContactsListItem = styled.li`
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+`
+export const PhonebookContactsListItemName = styled.span`
+    font-size: 16px;
+    margin-right: 10px;
+`
+export const DeleteBtn = styled.button`
+    font-size: 14px;
+    padding: 5px 10px;
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:hover {
+    background-color: #c0392b;
+  }
+`
   
-//   button[type="submit"]:hover {
-//     background-color: #006b8f;
-//   }
-  
-//   .contacts-container {
-//     display: flex;
-//     flex-direction: column;
-//     align-items: center;
-//   }
-  
-//   h3 {
-//     margin-bottom: 10px;
-//   }
-  
-//   .contacts-list {
-//     list-style: none;
-//     margin: 0;
-//     padding: 0;
-//   }
-  
-//   .contact-item {
-//     display: flex;
-//     align-items: center;
-//     margin-bottom: 10px;
-//   }
-  
-//   .contact-name {
-//     font-size: 16px;
-//     margin-right: 10px;
-//   }
-  
-//   .delete-button {
-//     font-size: 14px;
-//     padding: 5px 10px;
-//     background-color: #e74c3c;
-//     color: #fff;
-//     border: none;
-//     border-radius: 5px;
-//     cursor: pointer;
-//   }
-  
-//   .delete-button:hover {
-//     background-color: #c0392b;
-//   }
