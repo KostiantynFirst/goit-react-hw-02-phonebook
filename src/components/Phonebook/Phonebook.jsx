@@ -1,4 +1,5 @@
 import { Component } from "react";
+import { nanoid } from "nanoid";
 import { PhonebookContainer, PhonebookHeadings, PhonebookForm, PhonebookFormLabel, PhonebookFormInput, PhonebookBtn, PhonebookContacts, PhonebookContactsHeading, PhonebookContactsList, PhonebookContactsListItem, PhonebookContactsListItemName, DeleteBtn } from "./Phonebook.styled";
 
 export class Phonebook extends Component {
@@ -8,6 +9,35 @@ export class Phonebook extends Component {
         name: ''
       }
 
+    nameInputId = nanoid();
+
+    onInputName = e => {
+        const {name, value} = e.currentTarget;
+
+        console.log(e.currentTarget.value)
+   
+        this.setState({
+            [name]: value
+        })
+    }
+
+    hanleSubmit = e => {
+        e.preventDefault();
+        console.log(this.state)
+        this.setState({
+            contacts: [...this.state.contacts, {name: this.state.name, id: this.nameInputId}],
+            name: ''
+        })
+
+        this.resetForm();
+      }
+
+    resetForm = () => {
+        this.setState({
+            name: '',
+        })
+    }   
+
 
     render() {
 
@@ -16,14 +46,15 @@ export class Phonebook extends Component {
             <PhonebookContainer>
               <PhonebookHeadings>Phonebook</PhonebookHeadings>
             
-              <PhonebookForm>
+              <PhonebookForm onSubmit={this.hanleSubmit}>
                 <PhonebookFormLabel htmlFor="name">Name:</PhonebookFormLabel>
                 <PhonebookFormInput   type="text"
                                       name="name"
                                       pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
                                       title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
                                       required
-                                      placeholder="Enter name" />
+                                      placeholder="Enter name"
+                                      onChange={this.onInputName} />
             
                 <PhonebookBtn type="submit">Add Contact</PhonebookBtn>
               </PhonebookForm>
