@@ -10,34 +10,42 @@ export class Phonebook extends Component {
         number: '',
       }
 
+    //   onInputName = e => {
+    //     const { name, value } = e.target;
+    
+    //     console.log(e.currentTarget.value)
+    
+    //     this.setState({
+    //         [name]: value
+    //     });
+    // }
+
     onInputName = (e, option) => {
         const { value } = e.currentTarget;
-
-        console.log(e.currentTarget.value)
-   
+        console.log(value);
         this.setState({
-            [option]: value
+          [option]: value,
         });
-    }
+      };
 
     hanleSubmit = e => {
         e.preventDefault();
         console.log(this.state)
         this.setState({
-            contacts: [...this.state.contacts, {name: this.state.name, nuber: this.state.number, id: nanoid()}],
+            contacts: [...this.state.contacts, {name: this.state.name, number: this.state.number, id: nanoid()}],
             name: '',
             number: '',
         })
 
-        this.resetForm();
+        // this.resetForm();
       }
 
-    resetForm = () => {
-        this.setState({
-            name: '',
-            number: '',
-        })
-    }   
+    // resetForm = () => {
+    //     this.setState({
+    //         name: '',
+    //         number: '',
+    //     })
+    // }   
 
 
     render() {
@@ -49,6 +57,7 @@ export class Phonebook extends Component {
             
 
              <PhonebookForm onSubmit={this.hanleSubmit}>
+           
             <PhonebookFormContainer>
                 <PhonebookFormLabel htmlFor="name"> Name: </PhonebookFormLabel> 
                 <PhonebookFormInput   type="text"
@@ -72,16 +81,7 @@ export class Phonebook extends Component {
                                       placeholder="Tel number"
                                       onChange={this.onInputName} />
             </PhonebookFormContainer>
-             
-
-                {/* <PhonebookFormLabel htmlFor="number">Number:</PhonebookFormLabel>
-                <PhonebookFormInput 
-                                      type="tel"
-                                      name="number"
-                                      pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-                                      title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-                                      required
-                                     /> */}
+            
             
                 <PhonebookBtn type="submit">Add Contact</PhonebookBtn>
 
@@ -90,10 +90,10 @@ export class Phonebook extends Component {
               <PhonebookContacts>
                 <PhonebookContactsHeading>Contacts</PhonebookContactsHeading>
                 <PhonebookContactsList>
-            { this.state.contacts.map(({name, id}) => {
+            { this.state.contacts.map(({name, number, id}) => {
                 return(
                 <PhonebookContactsListItem key={id}>
-                    <PhonebookContactsListItemName>{name}</PhonebookContactsListItemName>
+                    <PhonebookContactsListItemName>{name}:{number}</PhonebookContactsListItemName>
                     <DeleteBtn>Delete</DeleteBtn>
                 </PhonebookContactsListItem>
                 )
