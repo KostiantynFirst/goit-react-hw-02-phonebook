@@ -9,7 +9,7 @@ export class Phonebook extends Component {
         name: ''
       }
 
-    nameInputId = nanoid();
+    // nameInputId = nanoid();
 
     onInputName = e => {
         const {name, value} = e.currentTarget;
@@ -25,7 +25,7 @@ export class Phonebook extends Component {
         e.preventDefault();
         console.log(this.state)
         this.setState({
-            contacts: [...this.state.contacts, {name: this.state.name, id: this.nameInputId}],
+            contacts: [...this.state.contacts, {name: this.state.name, id: nanoid()}],
             name: ''
         })
 
@@ -49,6 +49,7 @@ export class Phonebook extends Component {
               <PhonebookForm onSubmit={this.hanleSubmit}>
                 <PhonebookFormLabel htmlFor="name">Name:</PhonebookFormLabel>
                 <PhonebookFormInput   type="text"
+                                      value={this.state.name} 
                                       name="name"
                                       pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
                                       title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
@@ -61,19 +62,22 @@ export class Phonebook extends Component {
             
               <PhonebookContacts>
                 <PhonebookContactsHeading>Contacts</PhonebookContactsHeading>
-            
                 <PhonebookContactsList>
-                  <PhonebookContactsListItem>
-                    <PhonebookContactsListItemName>John Doe</PhonebookContactsListItemName>
-                    <DeleteBtn>Delete</DeleteBtn>
-                  </PhonebookContactsListItem>
-            
-                  <PhonebookContactsListItem>
-                    <PhonebookContactsListItemName>Jane Smith</PhonebookContactsListItemName>
-                    <DeleteBtn>Delete</DeleteBtn>
-                </PhonebookContactsListItem>
-                </PhonebookContactsList>
-            
+            { this.state.contacts.map(contact => {
+                const { name, id} = contact
+                console.log(name);
+                console.log(id);
+                <PhonebookContactsListItem id={id}>
+                <PhonebookContactsListItemName>{name}</PhonebookContactsListItemName>
+                <DeleteBtn>Delete</DeleteBtn>
+              </PhonebookContactsListItem>
+
+            })
+
+            }
+             </PhonebookContactsList>
+                
+    
               </PhonebookContacts>
             </PhonebookContainer> 
             
