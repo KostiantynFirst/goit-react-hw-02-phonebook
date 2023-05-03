@@ -6,7 +6,8 @@ export class Phonebook extends Component {
 
     state = {
         contacts: [],
-        name: ''
+        name: '',
+        number: '',
       }
 
     // nameInputId = nanoid();
@@ -47,7 +48,7 @@ export class Phonebook extends Component {
               <PhonebookHeadings>Phonebook</PhonebookHeadings>
             
               <PhonebookForm onSubmit={this.hanleSubmit}>
-                <PhonebookFormLabel htmlFor="name">Name:</PhonebookFormLabel>
+                <PhonebookFormLabel htmlFor="name">Name:
                 <PhonebookFormInput   type="text"
                                       value={this.state.name} 
                                       name="name"
@@ -56,8 +57,19 @@ export class Phonebook extends Component {
                                       required
                                       placeholder="Enter name"
                                       onChange={this.onInputName} />
+             </PhonebookFormLabel>
+
+                {/* <PhonebookFormLabel htmlFor="number">Number:</PhonebookFormLabel>
+                <PhonebookFormInput 
+                                      type="tel"
+                                      name="number"
+                                      pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+                                      title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+                                      required
+                                     /> */}
             
                 <PhonebookBtn type="submit">Add Contact</PhonebookBtn>
+
               </PhonebookForm>
             
               <PhonebookContacts>
@@ -65,7 +77,7 @@ export class Phonebook extends Component {
                 <PhonebookContactsList>
             { this.state.contacts.map(({name, id}) => {
                 return(
-                <PhonebookContactsListItem id={id}>
+                <PhonebookContactsListItem key={id}>
                     <PhonebookContactsListItemName>{name}</PhonebookContactsListItemName>
                     <DeleteBtn>Delete</DeleteBtn>
                 </PhonebookContactsListItem>
