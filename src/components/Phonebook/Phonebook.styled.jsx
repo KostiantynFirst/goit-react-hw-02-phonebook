@@ -9,6 +9,7 @@ export const PhonebookContainer = styled.div`
 export const PhonebookHeadings = styled.h2`
     font-family: Arial, sans-serif;
     margin: 0;
+    margin-bottom: 10px;
     padding: 0;
 `
 export const PhonebookForm = styled.form`
@@ -19,14 +20,14 @@ export const PhonebookForm = styled.form`
 `
 export const PhonebookFormContainer = styled.div`
     display: flex;
+    alighn-items: center;
     margin-bottom: 10px;
 `
 
 export const PhonebookFormLabel = styled.label`
     font-size: 18px;
     font-weight: bold;
-    // margin-bottom: 10px;
-    padding-right: 5px;
+    padding: 5px;
 `
 export const PhonebookFormInput = styled.input`
     font-size: 16px;

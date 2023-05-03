@@ -10,24 +10,23 @@ export class Phonebook extends Component {
         number: '',
       }
 
-    // nameInputId = nanoid();
-
-    onInputName = e => {
-        const {name, value} = e.currentTarget;
+    onInputName = (e, option) => {
+        const { value } = e.currentTarget;
 
         console.log(e.currentTarget.value)
    
         this.setState({
-            [name]: value
-        })
+            [option]: value
+        });
     }
 
     hanleSubmit = e => {
         e.preventDefault();
         console.log(this.state)
         this.setState({
-            contacts: [...this.state.contacts, {name: this.state.name, id: nanoid()}],
-            name: ''
+            contacts: [...this.state.contacts, {name: this.state.name, nuber: this.state.number, id: nanoid()}],
+            name: '',
+            number: '',
         })
 
         this.resetForm();
@@ -36,6 +35,7 @@ export class Phonebook extends Component {
     resetForm = () => {
         this.setState({
             name: '',
+            number: '',
         })
     }   
 
@@ -58,6 +58,18 @@ export class Phonebook extends Component {
                                       title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
                                       required
                                       placeholder="Enter name"
+                                      onChange={this.onInputName} />
+            </PhonebookFormContainer>
+            
+            <PhonebookFormContainer>
+                <PhonebookFormLabel htmlFor="number"> Number: </PhonebookFormLabel> 
+                <PhonebookFormInput   type="tel"
+                                      value={this.state.number} 
+                                      name="number"
+                                      pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+                                      title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+                                      required
+                                      placeholder="Tel number"
                                       onChange={this.onInputName} />
             </PhonebookFormContainer>
              
