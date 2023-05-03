@@ -22,30 +22,33 @@ export class Phonebook extends Component {
 
     onInputName = (e, option) => {
         const { value } = e.currentTarget;
-        console.log(value);
+        console.log(option);
+
         this.setState({
-          [option]: value,
-        });
+          [option]: value
+        })
+
+      
       };
 
     hanleSubmit = e => {
         e.preventDefault();
-        console.log(this.state)
+        // console.log(this.state);
         this.setState({
             contacts: [...this.state.contacts, {name: this.state.name, number: this.state.number, id: nanoid()}],
             name: '',
             number: '',
         })
 
-        // this.resetForm();
+        this.resetForm();
       }
 
-    // resetForm = () => {
-    //     this.setState({
-    //         name: '',
-    //         number: '',
-    //     })
-    // }   
+    resetForm = () => {
+        this.setState({
+            name: '',
+            number: '',
+        })
+    }   
 
 
     render() {
@@ -67,7 +70,7 @@ export class Phonebook extends Component {
                                       title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
                                       required
                                       placeholder="Enter name"
-                                      onChange={this.onInputName} />
+                                      onChange={(e) => this.onInputName(e, 'name')} />
             </PhonebookFormContainer>
             
             <PhonebookFormContainer>
@@ -79,7 +82,7 @@ export class Phonebook extends Component {
                                       title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
                                       required
                                       placeholder="Tel number"
-                                      onChange={this.onInputName} />
+                                      onChange={(e) => this.onInputName(e, 'number')} />
             </PhonebookFormContainer>
             
             
