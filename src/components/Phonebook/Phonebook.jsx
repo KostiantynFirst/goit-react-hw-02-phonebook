@@ -63,14 +63,14 @@ export class Phonebook extends Component {
               <PhonebookContacts>
                 <PhonebookContactsHeading>Contacts</PhonebookContactsHeading>
                 <PhonebookContactsList>
-            { this.state.contacts.map(contact => {
-                const { name, id} = contact
-                console.log(name);
-                console.log(id);
+            { this.state.contacts.map(({name, id}) => {
+                return(
                 <PhonebookContactsListItem id={id}>
-                <PhonebookContactsListItemName>{name}</PhonebookContactsListItemName>
-                <DeleteBtn>Delete</DeleteBtn>
-              </PhonebookContactsListItem>
+                    <PhonebookContactsListItemName>{name}</PhonebookContactsListItemName>
+                    <DeleteBtn>Delete</DeleteBtn>
+                </PhonebookContactsListItem>
+                )
+
 
             })
 
