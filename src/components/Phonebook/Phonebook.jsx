@@ -110,8 +110,12 @@ export class Phonebook extends Component {
              
               <Filter value={this.state.filter} onChange={this.changeFilter} />
 
+
                 <PhonebookContactsList>
+                  
+                  
             { this.state.contacts.map(({name, number, id}) => {
+              
                 return(
                 <PhonebookContactsListItem key={id}>
                     <PhonebookContactsListItemName>{name}:{number}</PhonebookContactsListItemName>
