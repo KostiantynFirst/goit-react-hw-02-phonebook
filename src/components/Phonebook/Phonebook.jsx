@@ -66,6 +66,12 @@ export class Phonebook extends Component {
 
     };
 
+    handleDeleteContact = contactId => {
+      this.setState(prevState => ({
+        contacts: prevState.contacts.filter(contact => contact.id !== contactId),
+      }));
+    };
+
 
     render() {
       const filteredContacts = this.onFilterResult();
@@ -120,7 +126,7 @@ export class Phonebook extends Component {
                 return(
                 <PhonebookContactsListItem key={id}>
                     <PhonebookContactsListItemName>{name}:{number}</PhonebookContactsListItemName>
-                    <DeleteBtn>Delete</DeleteBtn>
+                    <DeleteBtn onClick={() => this.handleDeleteContact(id)}>Delete</DeleteBtn>
                 </PhonebookContactsListItem>
 
                 )
