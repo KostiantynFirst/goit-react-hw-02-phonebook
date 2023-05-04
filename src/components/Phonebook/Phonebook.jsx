@@ -1,11 +1,13 @@
 import { Component } from "react";
 import { nanoid } from "nanoid";
 import { PhonebookContainer, PhonebookHeadings, PhonebookForm, PhonebookFormContainer, PhonebookFormLabel, PhonebookFormInput, PhonebookBtn, PhonebookContacts, PhonebookContactsHeading, PhonebookContactsList, PhonebookContactsListItem, PhonebookContactsListItemName, DeleteBtn } from "./Phonebook.styled";
+import { Filter } from "components/Filter/Filter";
 
 export class Phonebook extends Component {
 
     state = {
         contacts: [],
+        filter: '',
         name: '',
         number: '',
       }
@@ -50,6 +52,19 @@ export class Phonebook extends Component {
         })
     }   
 
+    changeFilter = e => {
+      this.setState({ filter: e.currentTarget.value });
+    };
+
+    onFilterResult = () => {
+      const { filter, contacts } = this.state;
+      const normalizedFilter = filter.toLowerCase();
+  
+      return contacts.filter(name =>
+        name.text.toLowerCase().includes(normalizedFilter),
+      );
+    };
+
 
     render() {
 
@@ -92,6 +107,9 @@ export class Phonebook extends Component {
             
               <PhonebookContacts>
                 <PhonebookContactsHeading>Contacts</PhonebookContactsHeading>
+             
+              <Filter value={this.state.filter} onChange={this.changeFilter} />
+
                 <PhonebookContactsList>
             { this.state.contacts.map(({name, number, id}) => {
                 return(
