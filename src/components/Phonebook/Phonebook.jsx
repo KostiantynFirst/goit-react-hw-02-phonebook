@@ -6,7 +6,12 @@ import { Filter } from "components/Filter/Filter";
 export class Phonebook extends Component {
 
     state = {
-        contacts: [],
+        contacts:[
+            {id: 'id-1', name: 'Rosie Simpson', number: '459-12-56'},
+            {id: 'id-2', name: 'Hermione Kline', number: '443-89-12'},
+            {id: 'id-3', name: 'Eden Clements', number: '645-17-79'},
+            {id: 'id-4', name: 'Annie Copeland', number: '227-91-26'},
+        ],
         filter: '',
         name: '',
         number: '',
@@ -24,7 +29,7 @@ export class Phonebook extends Component {
 
     onInputName = (e, option) => {
         const { value } = e.currentTarget;
-        console.log(option);
+        // console.log(option);
 
         this.setState({
           [option]: value
@@ -36,11 +41,14 @@ export class Phonebook extends Component {
     handleSubmit = e => {
         e.preventDefault();
         // console.log(this.state);
+        if(this.state.contacts.includes(this.state.name)) {
+            alert('Контакт з таким іменем вже присутній у списку!');
+        } else {
         this.setState({
             contacts: [...this.state.contacts, {name: this.state.name, number: this.state.number, id: nanoid()}],
             name: '',
             number: '',
-        })
+        })}
 
         this.resetForm();
       }
@@ -71,7 +79,6 @@ export class Phonebook extends Component {
         contacts: prevState.contacts.filter(contact => contact.id !== contactId),
       }));
     };
-
 
     render() {
       const filteredContacts = this.onFilterResult();
