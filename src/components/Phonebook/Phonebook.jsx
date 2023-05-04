@@ -59,15 +59,16 @@ export class Phonebook extends Component {
     onFilterResult = () => {
       const { filter, contacts } = this.state;
       const normalizedFilter = filter.toLowerCase();
-  
-      return contacts.filter(name =>
-        name.name.toLowerCase().includes(normalizedFilter),
+
+      return contacts.filter(contact =>
+        contact.name.toLowerCase().includes(normalizedFilter),
       );
+
     };
 
 
     render() {
-
+      const filteredContacts = this.onFilterResult();
         return (
    
             <PhonebookContainer>
@@ -114,14 +115,17 @@ export class Phonebook extends Component {
                 <PhonebookContactsList>
                   
                   
-            { this.state.contacts.map(({name, number, id}) => {
-              
+            { filteredContacts.map(({name, number, id}) => {
+
                 return(
                 <PhonebookContactsListItem key={id}>
                     <PhonebookContactsListItemName>{name}:{number}</PhonebookContactsListItemName>
                     <DeleteBtn>Delete</DeleteBtn>
                 </PhonebookContactsListItem>
+
                 )
+
+
               })
 
             }
