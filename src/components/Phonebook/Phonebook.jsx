@@ -33,7 +33,7 @@ export class Phonebook extends Component {
       
       };
 
-    hanleSubmit = e => {
+    handleSubmit = e => {
         e.preventDefault();
         // console.log(this.state);
         this.setState({
@@ -61,7 +61,7 @@ export class Phonebook extends Component {
       const normalizedFilter = filter.toLowerCase();
   
       return contacts.filter(name =>
-        name.text.toLowerCase().includes(normalizedFilter),
+        name.name.toLowerCase().includes(normalizedFilter),
       );
     };
 
@@ -74,7 +74,7 @@ export class Phonebook extends Component {
               <PhonebookHeadings>Phonebook</PhonebookHeadings>
             
 
-             <PhonebookForm onSubmit={this.hanleSubmit}>
+             <PhonebookForm onSubmit={this.handleSubmit}>
            
             <PhonebookFormContainer>
                 <PhonebookFormLabel htmlFor="name"> Name: </PhonebookFormLabel> 
@@ -122,9 +122,7 @@ export class Phonebook extends Component {
                     <DeleteBtn>Delete</DeleteBtn>
                 </PhonebookContactsListItem>
                 )
-
-
-            })
+              })
 
             }
              </PhonebookContactsList>
