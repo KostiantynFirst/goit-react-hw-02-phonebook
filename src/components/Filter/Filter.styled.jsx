@@ -2,6 +2,12 @@ import styled from "styled-components";
 
 export const FilterContainer = styled.div`
   margin-bottom: 20px;
+
+  // @media (max-width: 768px) {
+  //   display: flex;
+  //   justify-content: center;
+  // }
+  
 `;
 
 export const FilterLabel = styled.label`
