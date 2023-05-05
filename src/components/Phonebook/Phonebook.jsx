@@ -38,17 +38,35 @@ export class Phonebook extends Component {
       
       };
 
-    handleSubmit = e => {
+      handleSubmit = e => {
         e.preventDefault();
-        // console.log(this.state);
-        if(this.state.contacts.includes(this.state.name)) {
-            alert('Контакт з таким іменем вже присутній у списку!');
-        } else {
-        this.setState({
-            contacts: [...this.state.contacts, {name: this.state.name, number: this.state.number, id: nanoid()}],
-            name: '',
-            number: '',
-        })}
+        const { name, number, contacts } = this.state;
+    
+        const isNameExist = contacts.some(
+          contact => contact.name.toLowerCase() === name.toLowerCase(),
+        );
+        const isNumberExist = contacts.some(
+          contact => contact.number === number,
+        );
+    
+        if (isNameExist) {
+          alert('Contact with such name already exists!');
+          this.resetForm();
+          return;
+        }
+    
+        if (isNumberExist) {
+          alert('Contact with such number already exists!');
+          this.resetForm();
+          return;
+        }
+    
+        const newContact = { id: nanoid(), name, number };
+        this.setState(prevState => ({
+          contacts: [...prevState.contacts, newContact],
+          name: '',
+          number: '',
+        }));
 
         this.resetForm();
       }
