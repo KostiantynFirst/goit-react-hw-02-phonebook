@@ -45,6 +45,7 @@ export class Phonebook extends Component {
         const isNameExist = contacts.some(
           contact => contact.name.toLowerCase() === name.toLowerCase(),
         );
+        
         const isNumberExist = contacts.some(
           contact => contact.number === number,
         );
