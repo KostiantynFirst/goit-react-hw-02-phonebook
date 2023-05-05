@@ -16,6 +16,10 @@ export const FilterInput = styled.input`
   border-radius: 5px;
   border: 1px solid #ccc;
   width: 300px;
+
+  @media (max-width: 768px) {
+    width: 80%;
+  }
 `;
 
 export const FilterBtn = styled.button`

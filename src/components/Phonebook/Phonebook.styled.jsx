@@ -5,6 +5,10 @@ export const PhonebookContainer = styled.div`
   flex-direction: column;
   align-items: center;
   margin-top: 50px;
+
+  @media (max-width: 768px) {
+    width: 80%;
+  }
 `;
 
 export const PhonebookHeadings = styled.h2`
@@ -41,6 +45,10 @@ export const PhonebookFormInput = styled.input`
   border-radius: 5px;
   border: 1px solid #ccc;
   width: 300px;
+
+  @media (max-width: 768px) {
+    width: 80%;
+  }
 `;
 
 export const PhonebookBtn = styled.button`
