@@ -8,6 +8,8 @@ export const PhonebookContainer = styled.div`
 
   @media (max-width: 768px) {
     width: 80%;
+    margin-left: auto;
+    margin-right: auto;
   }
 `;
 
