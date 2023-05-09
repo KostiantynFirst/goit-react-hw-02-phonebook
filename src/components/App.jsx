@@ -2,7 +2,7 @@ import { Component } from "react";
 import { nanoid } from "nanoid";
 import { AddContactForm } from "./AddContactForm/AddContactForm";
 import { ContactList } from "./Contacts/Contacts";
-import { PhonebookContainer, PhonebookHeadings, PhonebookForm, PhonebookFormContainer, PhonebookFormLabel, PhonebookFormInput, PhonebookBtn, PhonebookContacts, PhonebookContactsHeading, PhonebookContactsList, PhonebookContactsListItem, PhonebookContactsListItemName, DeleteBtn } from "../components/Phonebook/Phonebook.styled";
+import { PhonebookContainer, PhonebookHeadings, PhonebookContacts, PhonebookContactsHeading } from "../components/Phonebook/Phonebook.styled";
 import { Filter } from "components/Filter/Filter";
 
 export class App extends Component {
@@ -108,7 +108,7 @@ export class App extends Component {
         />
 
         <ContactList 
-          contacts={this.filteredContacts}
+          filteredContacts={filteredContacts}
           handleDeleteContact={this.handleDeleteContact} 
         />
       
