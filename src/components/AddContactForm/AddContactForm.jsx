@@ -10,7 +10,7 @@ export const AddContactForm = ({handleSubmit, name, number, onInputName}) => {
             <PhonebookFormInput   type="text"
                                   value={name} 
                                   name="name"
-                                  pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+                                  pattern="^[a-zA-Z\u0400-\u04FF\s'\x2D]+$"
                                   title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
                                   required
                                   placeholder="Enter name"
@@ -22,7 +22,7 @@ export const AddContactForm = ({handleSubmit, name, number, onInputName}) => {
             <PhonebookFormInput   type="tel"
                                   value={number} 
                                   name="number"
-                                  pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+                                  pattern="^[\d\s\x28\x29\x2D\x2B]+$"
                                   title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
                                   required
                                   placeholder="Tel number"
